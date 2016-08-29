@@ -1,0 +1,3 @@
+We met with our customer Friday morning. We discussed the facets of both ideas.
+And gathered requirements for each the image browsing and the logging component.
+Also we recorded the conversations with our client.
