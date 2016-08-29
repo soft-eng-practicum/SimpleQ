@@ -1,1 +1,4 @@
-We met with our customer Friday morning. We discussed the facets of both ideas. We gathered requirements for each the image browsing and the logging component. Both ideas are from seperate teacher but they do not mind both ideas being merged. Also we recorded the conversations with our client for better review and analysis of requirements. Both teachers agreed to give us the freedom of choosing a mobile app or a web application. Our client will be open for communication and seems to be optimistic about the project.
+We met with our customer Friday morning. We discussed the facets of both ideas. We gathered requirements for each the image browsing and 
+the logging component. Both ideas are from seperate teacher but they do not mind both ideas being merged. Also we recorded the 
+conversations with our client for better review and analysis of requirements. Both teachers agreed to give us the freedom of choosing a 
+mobile app or a web application. Our client will be open for communication and seems to be optimistic about the project.
