@@ -2,3 +2,24 @@ We met with our customer Friday morning. We discussed the facets of both ideas. 
 the logging component. Both ideas are from seperate teacher but they do not mind both ideas being merged. Also we recorded the 
 conversations with our client for better review and analysis of requirements. Both teachers agreed to give us the freedom of choosing a 
 mobile app or a web application. Our client will be open for communication and seems to be optimistic about the project.
+
+
+There were three ideas discussed during our meeting that are to be chosen at the team's discretion based on feasability.
+
+1. Skeletal Diagram: 
+  - A study tool that allows users to quickly go through the bones of the body.
+  - Each part contains labels and brief information useful for quizes.
+  - Client hopes that Soft Dev teams can build upon this project using other systems like the Muscular and Nervous each semester.
+
+2. Study Logging System:
+  - This system will be used by students to track their study activites each week, leading up to each exam.
+  - Requires a user account system to enable long term tracking, group data analysis and button options for study activities.
+  - Client seeks to use the logs to compile data to determine the effectiveness of the various study tools and better equipt students to come.
+
+3. Histology Learning App:
+  - "Identify specimens via components"
+  - Another study tool used to strengthen student knowledge of tissues and corresponding cells.
+  - Focuses on getting the student to ask the right questions to arrive at thier answers to large questions with little information.
+  - This was a toss up, others have priority.
+  
+***Any other features are up to the team***
