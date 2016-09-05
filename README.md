@@ -10,6 +10,6 @@
 
 1. __Demetri__ - *User Interface Lead & Liasion* 
 2. xx
-3. xx 
+3. __Alvin__ - *Project Manager & Server Master*   
 4. xx 
 5. xx 
