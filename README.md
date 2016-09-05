@@ -9,9 +9,9 @@
 **Team members**: *below*
 
 1. __Demetri__ - *User Interface Lead & Liasion* 
-2. xx
+2. __Alvin__ - *Project Manager & Server Master*
 3. xx 
 4. __Palmer__ - *Documentation* 
-3. __Alvin__ - *Project Manager & Server Master*   
+3. xx   
 4. xx 
 5. xx 
