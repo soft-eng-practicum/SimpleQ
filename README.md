@@ -11,5 +11,5 @@
 1. __Demetri__ - *User Interface Lead & Liasion* 
 2. xx
 3. xx 
-4. xx 
+4. __Palmer__ - *Documentation* 
 5. xx 
