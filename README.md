@@ -10,6 +10,11 @@
 
 1. __Demetri__ - *User Interface Lead & Liasion* 
 2. xx
+<<<<<<< HEAD
 3. xx 
 4. __Palmer__ - *Documentation* 
+=======
+3. __Alvin__ - *Project Manager & Server Master*   
+4. xx 
+>>>>>>> 259d8906005031f419790d5d226876786e187f88
 5. xx 
