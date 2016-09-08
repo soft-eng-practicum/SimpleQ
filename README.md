@@ -12,4 +12,4 @@
 2. __Alvin__ - *Project Manager & Server Master*
 3. __Stuart__ - *Testing Lead & Programming Assist*  
 4. __Palmer__ - *Documentation* 
-5. 
+5. __Austin__ - *Lead Developer & UI Assist*
