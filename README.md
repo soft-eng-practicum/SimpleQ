@@ -9,7 +9,7 @@
 **Team members**: *below*
 
 1. __Demetri__ - *User Interface Lead & Liasion* 
-2. __Alvin__ - *Project Manager & Server Master*
+2. __Alvin__ - *Project Manager & Data Modeler*
 3. __Stuart__ - *Testing Lead & Programming Assist*  
 4. __Palmer__ - *Documentation* 
 5. __Austin__ - *Lead Developer & UI Assist*
