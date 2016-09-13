@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="msapplication-tap-highlight" content="no">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+		<link rel="stylesheet" type="text/css" href="css/index.css">
+		<link rel="stylesheet" href="lib/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+		<script src="lib/jquery-2.1.4/jquery-2.1.4.min.js"></script>
+		<script src="lib/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+		<title>Biology Study</title>
+	</head>
+	<body>
+		<div data-role="page" id="pageone"  style="text-transform:none">
+			<div data-role="header">
+				<h1><b>Biology Study</b></h1>
+			</div>
+			<div data-role="main" class="ui-content">
+				<div align="center">
+					<img src="img/genetics_molecular_570.jpg" alt="picture of two stupid cats">
+					<a href="#pagetwo" class="ui-btn">1107K</a>
+					<a href="#pagethree" class="ui-btn">1108K</a>
+					<a href="#pagefour" class="ui-btn">Human Anatomy</a>
+					<a href="#pagefive" class="ui-btn">Results/Log</a>
+					<a href="#pagesix" class="ui-btn">About this App </a>
+				</div>
+			</div>
+			<div class="footer">
+				<div align="center">
+            	<p><b>by Austin Seawell</b></p>	
+       			</div>	
+       		</div>
+		</div>
+		
+		<div data-role="page" id="pagetwo"  style="text-transform: none">
+			<div data-role="header">
+				<h1><b>1107K</b></h1>
+			</div>
+			<body>
+    		<p>
+    		<button id="startScan">Quiz 1</button>
+    		</p>
+    		<p>
+    		<button id="startScan">Quiz 2</button>
+    		</p>
+    		<p>
+    		<button id="startScan">Quiz 3</button>
+    		</p>
+    		<p>
+    		<button id="startScan">Quiz 4</button>
+    		</p>
+    		<div id="results"></div>
+    	</div>
+		</div>
+		
+		<div data-role="page" id="pagefour"  style="text-transform: none">
+			<div data-role="header">
+				<h1><b>Biology Study</b></h1>
+			</div>
+		</div>
+		
+		
+		<div data-role="page" id="pagefive"  style="text-transform: none">
+			<div data-role="header">
+				<h1><b>Biology Study</b></h1>
+			</div>
+			<div align="center">
+				<p><b>Email Instructor</b></p>
+			</div>
+			<div data-role="main" class="ui-content">
+				<h1>Email Form</h1>
+				<label for="name">Email report to:</label>
+				<input name="name" id="instructorEmail" value="" type="email"/>
+				<br/>
+				<label for="name">Your last name:</label>
+				<input name="name" id="lastName" value="" type="text"/>
+				<br/>
+				<label for="name">Your First name</label>
+				<input name="name" id="firstName" value="" type="text"/>
+				<br/>
+				<label for="name">Your course(for example, BIO1107K)</label>
+				<input name="name" id="courseID" value="" type="text"/>
+				<br/>
+				<label for="name">Your section(for example, 01)</label>
+				<input name="name" id="courseSection" value="" type="text"/>
+				<br/>
+				<p id="emailBtns" style="text-transform:none">
+					<a data-role="button" data-inline="true" id="sendBtn" href="#">Send</a>
+					<a data-role="button" data-inline="true" id="canBtn" href="#titlepage">Cancel</a>
+				</p>
+			</div>
+		</div>
+			
+			<div class="footer">
+				<div align="center">
+            	<p><b>by Austin Seawell</b></p>
+            	
+       			</div>	
+       		</div>
+			</div>
+
+		<div data-role="page" id="pagesix"  style="text-transform:none">
+			<div data-role="header">
+				<h1><b>Bio Study: About this App</b></h1>
+			</div>
+
+			<div data-role="main" class="ui-content">
+				<div align="center">
+					<img src="img/ggc-sst-crest.png" alt="picture of SST Crest">
+				</div>
+				
+				<div align = "center">
+				<b>
+					<small>
+					<p>Austin Seawell</p>
+					<p>This is currently a placeholder. I'll write something more informative later. </p>
+					</small>
+				</b>
+				</div>	
+			</div>	
+		</div>
+
+		<script type="text/javascript" src="cordova.js"></script>
+		<script type="text/javascript" src="js/index.js"></script>
+		
+	</body>
+</html>
