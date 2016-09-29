@@ -1,0 +1,11 @@
+Cream: #f3FFB9
+Orange: #E55812
+Dard Red: #881600
+Blue: #19647E
+Dark Purple: #0E1116
+
+2nd Version
+
+Same cream
+Middle orange: #FF5D10
+
