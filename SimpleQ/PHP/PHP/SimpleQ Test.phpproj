@@ -19,10 +19,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="index.php" />
-    <Compile Include="PHP\index.php" />
-    <Compile Include="PHP\logout.php" />
-    <Compile Include="PHP\succ.php" />
-    <Compile Include="PHP\userauth.php" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\" />
