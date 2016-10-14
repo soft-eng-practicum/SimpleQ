@@ -29,14 +29,22 @@ li a {
     text-decoration: none;
 }
 
-/* Change the link color to #0e1116 (black) on hover */
+/* Change the link color to #0e1116 (black) on hover and change font and size */
 li a:hover {
     font:bold 14px arial, verdana;
     background-color: #0e1116;
 }
+.button {
+    -webkit-transition-duration: 0.4s; /* Safari */
+    
+    transition-duration: 0.4s;
+}
 
-
-
+.button:hover {
+    background-color: #4CAF50; /* Green */
+    width:150%;
+    color: white;
+}
 h1{
       
 }
