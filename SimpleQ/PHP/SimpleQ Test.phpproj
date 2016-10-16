@@ -10,6 +10,8 @@
     <ProjectTypeGuids>{A0786B88-2ADB-4C21-ABE8-AA2D79766269}</ProjectTypeGuids>
     <AssemblyName>PHPWebProject1</AssemblyName>
     <ProjectHome />
+    <SpecificPageValue>PHP/</SpecificPageValue>
+    <StartAction>SpecificPage</StartAction>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <IncludeDebugInformation>true</IncludeDebugInformation>
