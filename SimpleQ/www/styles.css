@@ -1,0 +1,56 @@
+﻿header {
+   
+}
+
+body {
+    background-color: #f3ffb9;
+}
+
+/*Styling for the home links*/
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #19647e;
+}
+
+/* Stuff for the links*/
+li {
+    float: left;
+}
+
+li a {
+    font: 12px arial, verdana;
+    display:inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #0e1116 (black) on hover and change font and size */
+li a:hover {
+    font:bold 14px arial, verdana;
+    background-color: #0e1116;
+}
+.button {
+    -webkit-transition-duration: 0.4s; /* Safari */
+    
+    transition-duration: 0.4s;
+}
+
+.button:hover {
+    background-color: #4CAF50; /* Green */
+    width:150%;
+    color: white;
+}
+h1{
+      
+}
+
+
+p {
+    font-family: verdana;
+    font-size: 20px;
+}
