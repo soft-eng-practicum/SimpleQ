@@ -1,0 +1,5 @@
+CREATE DATABASE firstTry;
+USE firstTry;
+CREATE TABLE faculty(
+		-> userName VARCHAR(30) NOT NULL,
+        -> quizID INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY);

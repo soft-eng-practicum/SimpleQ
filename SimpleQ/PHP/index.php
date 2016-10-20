@@ -2,7 +2,7 @@
 <?php
 
 echo "Hello World!";
-echo " This is a test index";
+echo "Let's work";
 echo " muhahahaha";
 
 ?>
