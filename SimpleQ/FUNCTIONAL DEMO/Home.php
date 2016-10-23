@@ -29,7 +29,7 @@
             </nav>
             <div  style="text-align:right" class ="well">
                 <form method="post" action="SimpleQList.php"><!--Goes to the list of most recent quizzes-->
-                    <input type="text" name="search" value="Search by Faculty">
+                    <input type="text" name="search" placeholder="Search by Faculty">
                     <input type=submit name="submit "value="Find Quiz"><!--Searches for quizzes by Author-->   
                 </form>
             </div>
@@ -41,4 +41,4 @@
             </center>
         </div>
 	</body>
-</html>
+</html>
