@@ -5,6 +5,11 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{A0786B88-2ADB-4C21-ABE8-AA2D79766269}") = "SimpleQ Test", "PHP\SimpleQ Test.phpproj", "{98300F3B-5DD9-4D3E-AA29-B85565F6B089}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4FCE267C-2C3F-46B7-A5A4-9AFFF1F778A7}"
+	ProjectSection(SolutionItems) = preProject
+		FUNCTIONAL DEMO\Home.php = FUNCTIONAL DEMO\Home.php
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
