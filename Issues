@@ -1,0 +1,11 @@
+Current Issues Are As Follows
+
+  - Saving quizzes as JSON files to database requires further research
+  - For quizzes with multiple pages, the resulting grade does not increment (possible solution in the works)
+  
+Features to Add Are As Follows
+
+  - Registration for Users
+  - Searching for quizzes by Faculty -> Possible Subject as well (Depends on our design)
+  - Quiz generator with pictures -> Possibly privacy settings
+  - Email results to Faculty member option/toggle
