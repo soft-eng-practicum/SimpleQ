@@ -24,6 +24,7 @@
             </ul>
         </nav>
         <div class="container" style = "text-align:left">
+	<!--The inputs from this form will be sent to and calculated within the Demo02QuizResult Page-->	
             <form method="post" enctype="multipart/form-data" action="DemoQuiz02Result.php">
                 <strong><p>Queston 1</p></strong>
                 <p>This demo is fire.</p>
@@ -57,4 +58,4 @@
             </form>
         </div>
     </body>
-</html>
+</html>
