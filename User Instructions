@@ -1,0 +1,14 @@
+Students/Quiz Takers
+  -Access Website
+  -Click "Take Quiz" for recently created quizzes
+  -OR Search for quizzes by Faculty OR Subject
+  -Select Quiz to take
+  -Take Quiz
+  
+Faculty/Quiz Makers
+  -Access Website
+  -Click "Make Quiz" to go to Log in page
+  -If registered, enter username and password
+  -If not registered, click the link for registration
+  -Upon Login, click "Edit Quiz" to modify an existing quiz authored by that user
+  -Click "New Quiz" to create a brand new quiz to be taken
