@@ -22,7 +22,7 @@
                   <li><a href="SimpleQAbout.php">About</a></li>
                 </ul>
             </nav>
-            <form action="SimpleQMakeQuiz.php" method="post">
+            <form action="SimpleQMakeQuiz.php" method="post"><!--Log in form to allow all valid users to access thier account for quiz creation-->
                 Please type your username:
                 <input type="text" name="user"><br/>
                 Please type your password: &nbsp
@@ -31,4 +31,4 @@
             </form>
         </div>
 	</body>
-</html>
+</html>
