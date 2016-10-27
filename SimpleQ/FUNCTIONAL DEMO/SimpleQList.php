@@ -29,7 +29,7 @@
                 {
                     echo "This is where you would see the quizzes by their creator";
                 }
-                else
+                else//else show all of the latest quizzes created by all faculty
                 {
                     echo "<h2>Latest Quizzes</h2><hr/>";
                     echo "<a href=DemoQuiz01.php?quiz=1>Demo Quiz</a><br/><br/>";
@@ -38,4 +38,4 @@
             ?>
         </div>
     </body>
-</html>
+</html>
