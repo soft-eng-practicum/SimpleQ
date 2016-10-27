@@ -21,18 +21,18 @@
                 </ul>
             </nav>
         <?php
-        	$username = $_POST['user'];
+            $username = $_POST['user'];
             $password = $_POST['password'];
-            if($username =="Daaps" && $password =="Daaps")
+            if($username =="Daaps" && $password =="Daaps")//Shows the following HTML if user and pass are valid
             {
             	echo "<h1>Welcome $username</h1>";
                 echo "<h6>Here, the user can elect to either edit an existing quiz or create a new one.</h6>";
-        		echo "<p>The user only has access to the quizzes they have created</p>";
+        	echo "<p>The user only has access to the quizzes they have created</p>";
                 echo "<a href='SimpleQuizEdit.php' class='btn btn-info' role='button'>Edit Quiz</a>&nbsp&nbsp
-                	  <a href='SimpleQNew.php' class='btn btn-info' role='button'>New Quiz</a>";
+                      <a href='SimpleQNew.php' class='btn btn-info' role='button'>New Quiz</a>";
             }
             else
-             header("Location:SimpleQLogin.php");
+             header("Location:SimpleQLogin.php");//If login fails, revert back to the log in page.
         ?>
     	
         
