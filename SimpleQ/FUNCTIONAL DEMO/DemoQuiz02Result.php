@@ -25,6 +25,8 @@
         </nav>
         <div class="container" style = "text-align:center">     
         <?php
+	    //Based on the selections from the form, the user's grade will increment accordingly by the value of each question
+	    //and posted
             $grade = 0;   
             if($_POST['Q1']== "E")
               $grade += 25;
@@ -41,4 +43,4 @@
         ?>
         </div>
     </body>
-</html>
+</html>
