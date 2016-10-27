@@ -27,11 +27,11 @@
         <form method="get" enctype="multipart/form-data" action="<?php echo htmlspecialchars($_SERVER["SELF"]);?>">
         </form>
         <?php
-                $quiz= $_GET['quiz'];
-                $grade = 0;
+                $quiz= $_GET['quiz']; //Since the form above is empty, there are no inputs to register. 
+                $grade = 0;	      //Each value of quiz represents a different page representation within the same file
                 if($quiz == 1)
-                {
-                    echo "<strong><p>Queston 1</p></strong>
+                {		//The HTML to be displayed for DemoQuiz01.php?quiz=1	
+                    echo "<strong><p>Queston 1</p></strong>	
                           <p>This demo is fire.</p>
                           <input type='radio' value='A' name='Q1' >A. Strongly Disagree<br/>
                           <input type='radio' value='B' name='Q1' >B. Disagree<br/>
@@ -42,7 +42,7 @@
                 }
                 
                 if($quiz == 2)
-                {
+                {	//The HTML to be displayed for DemoQuiz01.php?quiz=2
                     echo "<strong><p>Queston 2</p></strong>
                           <p>This demo is OP SUPER DUPER fire.</p>
                           <input type='radio' value='A' name='Q2' >A. Strongly Disagree<br/>
@@ -55,7 +55,7 @@
                 }
                 
                 if($quiz == 3)
-                {
+                {	//The HTML to be displayed for DemoQuiz01.php?quiz=3
                     echo "<strong><p>Queston 3</p></strong>
                           <p>I think presentations hurt.</p>
                           <input type='radio' value='A' name='Q3' >A. Strongly Disagree<br/>
@@ -68,7 +68,7 @@
                 }
                 
                 if($quiz == 4)
-                {
+                {	//The HTML to be displayed for DemoQuiz01.php?quiz=4
                     echo "<strong><p>Queston 4</p></strong>
                           <p>I made it to the end</p>
                           <input type='radio' value='A' name='Q4' >A. True<br/>
@@ -78,9 +78,9 @@
 
                 }
                 $done = $_GET['done'];
-                if($done == 1)
+                if($done == 1)//The quiz complete page that features a grade based on correct asnwers
                 {
-                	if($_GET['Q1']== "E" || $_GET['Q2']== "E"|| $_GET['Q3']== "D" || $_GET['Q4']== "B")
+                    if(/*$quiz == 1*/$_GET['Q1']== "E" || $_GET['Q2']== "E"|| $_GET['Q3']== "D" || $_GET['Q4']== "B")
                     {
                     	$grade += 25;
                     }
@@ -90,4 +90,4 @@
             ?>
         </div>
     </body>
-</html>
+</html>
