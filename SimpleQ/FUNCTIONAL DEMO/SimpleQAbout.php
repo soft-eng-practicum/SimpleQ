@@ -23,6 +23,7 @@
             </nav>
         </div>       
         <div class="container" style = "text-align:center">
+            <a href="https://goo.gl/forms/S9uXwj03vzydQMn52">Survey</a>
             <h3>
             	What is SimpleQ?
             </h3>
@@ -33,4 +34,4 @@
             </p>
         </div>
     </body>
-</html>
+</html>
