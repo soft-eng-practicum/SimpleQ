@@ -1,0 +1,13 @@
+<?php
+	session_start();
+    require_once("coreFunctions.php");
+    makeHeader();
+    makeNavBar();
+    if($_SESSION['user'])
+    {
+      displayProfile($_SESSION['user']);
+    }
+    else
+      header("Location:SimpleQLogin.php");
+    makeFooter();
+?>
