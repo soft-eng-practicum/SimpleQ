@@ -1,0 +1,15 @@
+Test Documentation
+
+
+(Environment: Windows, Chrome)
+Palmer Date 11/20/2016
+	5 Tests run in total
+	4 Tests out of 5 complete
+	*No resolution to failed test
+	
+	
+Austin Date 11/27/2016
+	7 Tests run in total
+	7 Tests out of 7 complete
+	*No resolution required
+	
