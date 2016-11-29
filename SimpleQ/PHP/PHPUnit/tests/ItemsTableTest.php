@@ -1,4 +1,6 @@
 <?php
+
+//Generic DB testing
 namespace TDD\Test;
 require dirname( dirname(__FILE__) ) . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
 
@@ -8,6 +10,7 @@ use \PDO;
 
 class ItemsTableTest extends TestCase {
 
+	// Method to set up a PDO connection
 	public function setUp() {
 		$this->PDO = $this->getConnection();
 		$this->createTable();
@@ -16,6 +19,7 @@ class ItemsTableTest extends TestCase {
 		$this->ItemsTable = new ItemsTable($this->PDO);
 	}
 
+	// Method to destroy the ItemsTable and PDO.
 	public function tearDown() {
 		unset($this->ItemsTable);
 		unset($this->PDO);
@@ -83,6 +87,7 @@ class ItemsTableTest extends TestCase {
 		return new PDO('sqlite::memory:');
 	}
 
+	// Creating a table that holds values for id, name and price
 	protected function createTable() {
 		$query = "
 		CREATE TABLE `items` (
@@ -95,6 +100,7 @@ class ItemsTableTest extends TestCase {
 		$this->PDO->query($query);
 	}
 
+	// Filling the table with following values
 	protected function populateTable() {
 		$query = "
 		INSERT INTO `items` VALUES (1,'Candy',1.00);
