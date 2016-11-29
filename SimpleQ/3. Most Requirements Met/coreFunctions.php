@@ -1,4 +1,9 @@
 <?php
+    /*
+    	name: makeHeader
+        parameters: String $title
+        return void;
+    */
     function makeHeader($title)
     {
       ?>
@@ -8,17 +13,41 @@
               <title>
                   <?php echo $title;?> 
               </title>
-              <!--The following lines introduce the bootstrap-->
+              <!--The following lines introduce the bootstrap>
               <meta charset="utf-8">
               <meta name="viewport" content="width=device-width, initial-scale=1">
               <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
               <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-              <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+              <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script-->
+          	  <meta name="viewport" content="width=device-width, initial-scale=1">
+              <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+              <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+              <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+          	  <style>
+                  body, h1, h2, h3, h4, h5, h6 
+                  {
+                      font-family: "Lato", sans-serif;
+                  }
+                  .w3-navbar, h1, button 
+                  {
+                      font-family: "Montserrat", sans-serif;
+                  }
+                  .fa-anchor, .fa-coffee 
+                  {
+                      font-size: 200px;
+                  }
+            </style>
           </head>
           <body>               
       <?php      		
     }
     
+    /*
+    	name: makeJumbotron
+        parameters: String $jumbo
+        return void;
+    */
     function makeJumbotron($jumbo)
     {
     	?>
@@ -28,61 +57,124 @@
         <?php
     }
     
+    /*
+    	name: makeNavBar
+        parameters: null
+        return void;
+    */
     function makeNavBar() //Navigation Bar for each page
     {
       ?>
-          <nav class="navbar navbar-inverse">
-              <div class="navbar-header">
-                <a class="navbar-brand" href="Home.php">Simple Q</a>
-              </div>
-              <ul class="nav navbar-nav">
-                  <li><a href="Tutorial.php">Tutorial</a></li>
-                  <li><a href="SimpleQList.php">Quiz List</a></li>
-                  <li><a href="SimpleQAbout.php">About</a></li>
-              </ul>
-              <?php
-                  if($_SESSION['user'])
+              <!-- Navbar -->
+              <div>     <!--div class="w3-top"-->
+                  <ul class="w3-navbar w3-black w3-card-2 w3-left-align w3-large">
+                      <li class="w3-hide-medium w3-hide-large w3-opennav w3-right">
+                          <a class="w3-padding-large w3-hover-white w3-large w3-blue" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+                      </li>
+                      <li><a href="Home.php" class="w3-padding-large w3-white">SQ</a></li>
+                      <li class="w3-hide-small"><a href="SimpleQList.php" class="w3-padding-large w3-hover-white">Quiz List</a></li>
+                      <li class="w3-hide-small"><a href="SimpleQAbout.php" class="w3-padding-large w3-hover-white">About</a></li>
+                      <li class="w3-hide-small"><a href="Tutorial.php" class="w3-padding-large w3-hover-white">Help</a></li>
+
+                  <?php
+                  if(isset($_SESSION['user']))
                   {
-                   echo "<ul class=\"nav navbar-nav navbar-right\">
-                          <li><a href=\"SimpleQMakeQuiz.php\"><span class=\"glyphicon glyphicon-user\"></span> Make Quiz</a></li>
-                          <li><a href=\"Logout.php\"><span class=\"glyphicon glyphicon-log-out\"></span> Logout&nbsp</a></li>
-                        </ul>";
+                    echo "	<li class=\"w3-hide-small\"><a href=\"SimpleQMakeQuiz.php\" class=\"w3-padding-large w3-hover-white\"> Make a Quiz</a></li>
+                              <li class=\"w3-hide-small\"><a href=\"AccountSettings.php\" class=\"w3-padding-large w3-hover-white\"> Account Settings</a></li>
+                              <li class=\"w3-hide-small\"><a href=\"Logout.php\" class=\"w3-padding-large w3-hover-white\">Logout&nbsp</a></li>    
+                          </ul>";
                   }
                   else
                   {
-                  	echo "<ul class=\"nav navbar-nav navbar-right\">
-                          <li><a href=\"SimpleQLogin.php\"><span class=\"glyphicon glyphicon-log-in\"></span> Login&nbsp</a></li>
+                    echo "<li class=\"w3-hide-small\"><a href=\"SimpleQLogin.php\" class=\"w3-padding-large w3-hover-white\">Login</a></li>
                           </ul>";
                   }
-              ?>
-          </nav>
+                  ?>
+                  <!-- Navbar on small screens -->
+                  <div id="navDemo" class="w3-hide w3-hide-large w3-hide-medium">
+                      <ul class="w3-navbar w3-right-align w3-large w3-black">
+                          <li><a class="w3-padding-large" href="SimpleQList.php">Quiz List</a></li>
+                          <li><a class="w3-padding-large" href="SimpleQAbout.php">About</a></li>
+                      </ul>
+                  </div>
+              </div>
       <?php
+      //echo  "The user is ".$_SESSION['user'];    
     }
     
+    /*
+    	name: makeSearchBar
+        parameters: null
+        return void;
+    */
     function makeSearchBar()
     {
     	?>
-            <div  style="text-align:right" class ="well">
-                    <form method="post" action="SimpleQList.php"><!--Goes to the list of most recent quizzes-->
-                        <input type="text" name="search" placeholder="Search by Faculty">
-                        <input type=submit name="submit "value="Find Quiz"><!--Searches for quizzes by Author-->   
-                    </form>
+            <div style="text-align:center" class ="well">
+                <form method="post" action="SimpleQList.php"><!--Goes to the list of most recent quizzes-->
+                  <input type="text" name="search" placeholder="Search by Faculty">
+                  <input type=submit name="submit "value="Find Quiz"><!--Searches for quizzes by Author-->   
+                </form>
             </div>
         <?php
     }
     
+    /*
+    	name: makeFooter
+        parameters: null
+        return void;
+    */
     function makeFooter()
     {		
-        echo "	</div>
-            </body>
-        </html> ";
+        ?>
+        <!-- Footer -->
+        <footer class="w3-container w3-padding-64 w3-center w3-opacity">
+            <div class="w3-xlarge w3-padding-32">
+                <a href="https://github.com/soft-eng-practicum/myXLab" class="w3-hover-text-indigo"><i class="fa fa-github"></i></a>
+                <p>Our Github</p>
+                <hr>              
+            </div>
+            	Except where otherwise noted, this website is licensed under a <br/>
+                <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+                Creative Commons Attribution 3.0 Unported License</a>.
+        </footer>
+
+        <script>
+        // Used to toggle the menu on small screens when clicking on the menu button
+        function myFunction() 
+        {
+            var x = document.getElementById("navDemo");
+            if (x.className.indexOf("w3-show") == -1) 
+            {
+                x.className += " w3-show";
+            } 
+            else 
+            {
+                x.className = x.className.replace(" w3-show", "");
+            }
+        }
+        </script> 
+        <?php  
+            echo "	</div>
+                </body>
+            </html> ";       
     }
     
+    /*
+    	name: makeLink
+        parameters: String $url, String $title
+        return void;
+    */
     function makeLink($url, $title)
     {
     	echo "<a href=".$url.">".$title."</a><br/>";
     }
     
+    /*
+    	name: inputQuestions
+        parameters: String $template, Int $qAmount
+        return void;
+    */
     function inputQuestions($template,$qAmount)
     {
     	echo "Name your quiz: <input type='text' name='quizName'><hr/>";
@@ -92,19 +184,24 @@
             for($i=0;$i<$qAmount;$i++)
             {
                 $j= $i+1;
-                echo "Upload Image for Question ".$j.": <input type='file' name='myfile".$j."'>";
+                echo "Upload  a (.jpg, .gif or .png) Image for Question ".$j.": <input type='file' name='myfile".$j."'>";
                 echo "Enter Question ".$j.": <input type='text'name='Q".$j."'><br/>";
-                echo "Enter Answer A: <input type='text'name='Q".$j."A'><br/>";
-                echo "Enter Answer B: <input type='text'name='Q".$j."B'><br/>";
-                echo "Enter Answer C: <input type='text'name='Q".$j."C'><br/>";
-                echo "Enter Answer D: <input type='text'name='Q".$j."D'><hr/>";
+                echo "Enter Answer A: <input type='text'name='Q".$j."A'>
+                *Enter a Hint: <input type='text'name='HintQ".$j."A'><br/>";
+                echo "Enter Answer B: <input type='text'name='Q".$j."B'>
+                *Enter a Hint: <input type='text'name='HintQ".$j."B'><br/>";
+                echo "Enter Answer C: <input type='text'name='Q".$j."C'>
+                *Enter a Hint: <input type='text'name='HintQ".$j."C'><br/>";
+                echo "Enter Answer D: <input type='text'name='Q".$j."D'>
+                *Enter a Hint: <input type='text'name='HintQ".$j."D'><hr/>";
                 echo "Correct Answer : 
                 <select id='correct' name='correct".$j."'>                      
                     <option value='A'>A</option>
                     <option value='B'>B</option>
                     <option value='C'>C</option>
                     <option value='D'>D</option>
-				</select><hr/>";
+				</select>
+                <hr/>";
             }
         }
         if($template == "B")
@@ -112,12 +209,16 @@
         	for($i=0;$i<$qAmount;$i++)
             {
                 $j= $i+1;
-                echo "Upload Image for Question ".$j.": <input type='file' name='myfile".$j."'>";
+                echo "Upload a (.jpg, .gif or .png) Image for Question ".$j.": <input type='file' name='myfile".$j."'>";
                 echo "Enter Question ".$j.": <input type='text'name='Q".$j."'><br/>";
-                echo "Enter Answer A: <input type='text'name='Q".$j."A'><br/>";
-                echo "Enter Answer B: <input type='text'name='Q".$j."B'><br/>";
-                echo "Enter Answer C: <input type='text'name='Q".$j."C'><br/>";
-                echo "Enter Answer D: <input type='text'name='Q".$j."D'><hr/>";
+                echo "Enter Answer A: <input type='text'name='Q".$j."A'>
+                *Enter a Hint: <input type='text'name='HintQ".$j."A'><br/>";
+                echo "Enter Answer B: <input type='text'name='Q".$j."B'>
+                *Enter a Hint: <input type='text'name='HintQ".$j."B'><br/>";
+                echo "Enter Answer C: <input type='text'name='Q".$j."C'>
+                *Enter a Hint: <input type='text'name='HintQ".$j."C'><br/>";
+                echo "Enter Answer D: <input type='text'name='Q".$j."D'>
+                *Enter a Hint: <input type='text'name='HintQ".$j."D'><hr/>";
                 echo "Correct Answer : 
                 <select id='correct' name='correct".$j."'>                      
                     <option value='A'>A</option>
@@ -129,15 +230,19 @@
         }
         else if($template == "C")
         {
-        	echo "Upload image for the quiz: <input type='file' name='myfile'><hr/>";
+        	echo "Upload a (.jpg, .gif or .png) image for the quiz: <input type='file' name='myfile'><hr/>";
             for($i=0;$i<$qAmount;$i++)
             {
                 $j= $i+1;
                 echo "Enter Question ".$j.": <input type='text'name='Q".$j."'><br/>";
-                echo "Enter Answer A: <input type='text'name='Q".$j."A'><br/>";
-                echo "Enter Answer B: <input type='text'name='Q".$j."B'><br/>";
-                echo "Enter Answer C: <input type='text'name='Q".$j."C'><br/>";
-                echo "Enter Answer D: <input type='text'name='Q".$j."D'><hr/>";
+                echo "Enter Answer A: <input type='text'name='Q".$j."A'>
+                *Enter a Hint: <input type='text'name='HintQ".$j."A'><br/>";
+                echo "Enter Answer B: <input type='text'name='Q".$j."B'>
+                *Enter a Hint: <input type='text'name='HintQ".$j."B'><br/>";
+                echo "Enter Answer C: <input type='text'name='Q".$j."C'>
+                *Enter a Hint: <input type='text'name='HintQ".$j."C'><br/>";
+                echo "Enter Answer D: <input type='text'name='Q".$j."D'>
+                *Enter a Hint: <input type='text'name='HintQ".$j."D'><hr/>";;
                 echo "Correct Answer : 
                 <select id='correct' name='correct".$j."'>                      
                     <option value='A'>A</option>
@@ -150,6 +255,11 @@
         echo "<input type='submit' name='submit' value='Create Quiz!'>";
     }
     
+     /*
+    	name: spitQuestions
+        parameters: String $template, Int $qAmount
+        return void;
+    */
     function spitQuestions($template,$qAmount)
     {
     	$vomit = "";
@@ -160,20 +270,36 @@
             {
                 $j=$i+1;
                 $pic = uploadfile('myfile'.$j);
-                $vomit = $vomit."<strong><p>Question ".$j."</p></strong>
-                           <img src='".$pic."' style='width:500px;height:400px'><br/>
-                           <p>".$_POST['Q'.$j]."</p>
-                           <input type='radio' value='A' name='Q".$j."' >A. ".$_POST['Q'.$j.'A']."<br/>
-                           <input type='radio' value='B' name='Q".$j."' >B. ".$_POST['Q'.$j.'B']."<br/>
-                           <input type='radio' value='C' name='Q".$j."' >C. ".$_POST['Q'.$j.'C']."<br/>
-                           <input type='radio' value='D' name='Q".$j."' >D. ".$_POST['Q'.$j.'D']."<br/>
-                           <hr/>";
+                if($pic!=NULL)
+                {
+                	
+                    echo $pic."<br/>";
+                    $vomit = $vomit."<strong><p>Question ".$j."</p></strong>
+                               <img src='".$pic."' style='width:500px;height:400px'><br/>
+                               <p>".$_POST['Q'.$j]."</p>
+                               <input type='radio' value='A' name='Q".$j."' >A. ".$_POST['Q'.$j.'A']."<br/>
+                               <input type='radio' value='B' name='Q".$j."' >B. ".$_POST['Q'.$j.'B']."<br/>
+                               <input type='radio' value='C' name='Q".$j."' >C. ".$_POST['Q'.$j.'C']."<br/>
+                               <input type='radio' value='D' name='Q".$j."' >D. ".$_POST['Q'.$j.'D']."<br/>
+                               <hr/>";
+                }
+                else
+                {
+                	$vomit = $vomit."<strong><p>Question ".$j."</p></strong><br/>
+                               <p>".$_POST['Q'.$j]."</p>
+                               <input type='radio' value='A' name='Q".$j."' >A. ".$_POST['Q'.$j.'A']."<br/>
+                               <input type='radio' value='B' name='Q".$j."' >B. ".$_POST['Q'.$j.'B']."<br/>
+                               <input type='radio' value='C' name='Q".$j."' >C. ".$_POST['Q'.$j.'C']."<br/>
+                               <input type='radio' value='D' name='Q".$j."' >D. ".$_POST['Q'.$j.'D']."<br/>
+                               <hr/>";
+                }
             }  
 		}
         if($template == "C")
         {
         	$pic = uploadfile('myfile');
-            $vomit = $vomit."<img src='".$pic."' style='width:500px;height:400px'><hr/>";
+            if($pic!=NULL)
+            	$vomit = $vomit."<img src='".$pic."' style='width:500px;height:400px'><hr/>";
             for($i=0;$i<$qAmount;$i++)
             {
                 $j=$i+1; 
@@ -189,6 +315,84 @@
         return $vomit;
     }
     
+     /*
+    	name: checkAnswer
+        parameters: String $template, Int $qAmount
+        return void;
+    */
+    function checkAnswers($template, $qAmount)
+    {
+    	$puke = "<?php \$grade=0;";
+        if($template == 'B' || $template == 'C')
+        {
+        	for($i=0;$i<$qAmount;$i++)
+            {
+                $j=$i+1;
+                $puke = $puke."
+                \$miss".$j." = ''; 
+                if(\$_POST['Q".$j."'] == ".$_POST['correct'.$j].") 
+                \$grade += 1;
+                else 
+                {
+                	if(\$_POST['Q".$j."'] == \"A\") 
+                    {
+                    	\$miss".$j." = '*Question ".$j.": ".$_POST['HintQ'.$j.'A']."';
+                    }
+                    if(\$_POST['Q".$j."'] == \"B\") 
+                    {
+                    	\$miss".$j." = '*Question ".$j.": ".$_POST['HintQ'.$j.'B']."';
+                    }
+                    if(\$_POST['Q".$j."'] == \"C\") 
+                    {
+                    	\$miss".$j." = '*Question ".$j.": ".$_POST['HintQ'.$j.'C']."';
+                    }
+                    if(\$_POST['Q".$j."'] == \"D\") 
+                    {
+                    	\$miss".$j." = '*Question ".$j.": ".$_POST['HintQ'.$j.'D']."';
+                    }
+                }";
+                              
+            }  
+             $answers = showAnswers($qAmount);
+             $puke = $puke.$answers."
+             \$progress = 'progress';
+             \$progressValue = \$grade.'/".$qAmount." Correct';
+             setcookie(\$progress,\$progressValue,time()+60*60*24,'/');
+             ?>";
+        }
+        
+        if($template == 'A')
+        {
+        	echo "To be created<br/>";
+        }
+        
+        return $puke;
+    }
+    
+     /*
+    	name: showAnswers
+        parameters: Int $qAmount
+        return void;
+    */
+    function showAnswers($qAmount)
+    {
+    	$wrong = "";
+        for($i=0;$i<$qAmount;$i++)
+        {
+          $j=$i+1;
+          $wrong = $wrong."'.\$miss".$j.".'<br/>";
+
+        } 
+        $content = "echo 'Quiz Complete!<hr/>Correct Answers: '.\$grade.'/".$qAmount."<hr/> Questions Missed:<br/>
+        			".$wrong."';";
+       return $content;             
+    }
+    
+     /*
+    	name: makeQuiz
+        parameters: String $quizName
+        return void;
+    */
     function makeQuiz($quizName)
     {
     	//Quiz Begin Page
@@ -196,11 +400,13 @@
         $content = "
         		   <?php
                    		require_once('coreFunctions.php');
-                   		makeHeader('".$quizName." | Getting Started');
+                   		session_start();
+                        makeHeader('".$quizName." | Getting Started');
                         makeNavBar();
                         	?>
                             	<div class='container' style = 'text-align:left'>  
                                     <h3>Welcome to ".$quizName."!</h3>
+                                    <h4>Created by: ".$_SESSION['user']."</h4>
                                     <h5/>Answer all questions to the best of your ability!<h5/>
                                     <hr/>
                                     <form method='post' enctype='multipart/form-data' action='".$quizName.".php'>
@@ -254,6 +460,7 @@
         $file = fopen($quizName."-Done.php","w") or die("Unable to open ".$quizName."-Done.php");
         $content = "<?php
         				require_once('coreFunctions.php');
+                        session_start();
                         date_default_timezone_set('America/New_York');
                         \$date = date('m/d/Y');
                         \$time = date('h:i:sa');
@@ -263,8 +470,9 @@
                         setcookie(\$cookieDate,\$date,time()+60*60*24,'/');
                         setcookie(\$cookieTime,\$time,time()+60*60*24,'/');
                         makeHeader('".$quizName." | Results');
-                        makeNavBar();
                         ?>
+                        <br/>
+                        <br/>
                         <div class= container style = text-align:left>
                         <h4>Congratulations <?php echo \$_COOKIE[\"name\"];?>, you made it!</h4><hr/>
                         
@@ -274,7 +482,7 @@
         
         $check = checkAnswers($_COOKIE['template'],$_COOKIE['qAmount']);
         $newContent = $check."
-        					<hr/><p>To return to the quiz list, click <?php makeLink('".$quizName."-Kill.php','here'); echo '</p><br/>';?> 
+        					<hr/><p>To return to SimpleQ, click <?php makeLink('".$quizName."-Kill.php','here'); echo '</p><br/>';?> 
                         	</div>	
                             <?php
                             makeFooter();
@@ -295,6 +503,7 @@
                     \$content = \"
                     <?php
                     require_once('coreFunctions.php');
+                    session_start();
                     makeHeader('Results for \".\$_COOKIE['quiz'].\"');
                     makeNavBar();
                     ?>
@@ -313,22 +522,25 @@
                     \";
                     fwrite(\$file1,\$content);  
                     fclose(\$file1);
-                    session_unset();
-                    session_destroy();
+                    setcookie(\"name\",\"dsdd\",time()-60*60*24,\"/\");
+                    setcookie(\"email\",\"dsdd\",time()-60*60*24,\"/\");
+                    setcookie(\"quiz\",\"dsdd\",time()-60*60*24,\"/\");
+                    setcookie(\"date\",\"dsdd\",time()-60*60*24,\"/\");
+                    setcookie(\"time\",\"dsdd\",time()-60*60*24,\"/\");
+                    setcookie(\"progress\",\"dsdd\",time()-60*60*24,\"/\");
                     header('Location:SimpleQList.php');
-                    exit();
         			?>";
        fwrite($file,$content);  
        fclose($file);
        
-       //Results Page
-       /*$file = $quizName."-Results.php";  
-       $newContent="";
-       file_put_contents($file, $newContent, FILE_APPEND);
-       fclose($file);*/
     }
    
-   	function makeQuestionsA($quizName,$qAmount,$attempts)
+   	 /*
+    	name: makeQuestionsA
+        parameters: String $quizName, Int $qAmount, Int $attempts
+        return void;
+    */
+    function makeQuestionsA($quizName,$qAmount,$attempts)
     {
     	for($i=0;$i<$qAmount;$i++)
         {
@@ -340,59 +552,160 @@
             	$l = "Done";
             }
             $pic = uploadfile('myfile'.$j);
-            $file = fopen($quizName."-Q".$j.".php","w") or die("Unable to open ".$quizName."-Q".$j.".php");
-            $content = "<?php
-                                require_once('coreFunctions.php');
-                                session_start();
-                                \$progress = \"progress\";
-                                \$progressValue = \"Question ".$j."\";
-                                setcookie(\$progress,\$progressValue,time()+60*60*24,\"/\");
-                                makeHeader('".$quizName." | Question ".$j."');
-                                makeNavBar();
-                                ?>
-                                  <div class='container' style = 'text-align:left'>
-                                    <form method='post' enctype='multipart/form-data' action=\"<?php echo \$_SERVER['SELF']?>\">                     
-                					<strong><p>Question ".$j."</p></strong>
-                                    <img src='".$pic."' style='width:500px;height:400px'><br/>
-                                      <p>".$_POST['Q'.$j]."</p>
-                                      <input type='radio' value='A' name='Q".$j."' >A. ".$_POST['Q'.$j.'A']."<br/>
-                                      <input type='radio' value='B' name='Q".$j."' >B. ".$_POST['Q'.$j.'B']."<br/>
-                                      <input type='radio' value='C' name='Q".$j."' >C. ".$_POST['Q'.$j.'C']."<br/>
-                                      <input type='radio' value='D' name='Q".$j."' >D. ".$_POST['Q'.$j.'D']."<br/>
-                                      <input type='submit' value='Next Question' name='submit'>
-                                    </form>
-                                  </div>  
-                                <?php
-                                echo \"<hr/>\";
-                                if(isset(\$_POST['submit']) && \$_POST['submit']!=NULL)
-                                {	
-                                   echo \"Submit clicked!<br/>\";
-                                   if(\$_POST['Q".$j."']==".$_POST['correct'.$j].")
-                                    {
-                                        header(\"Location:".$quizName."-".$l.".php?Q".$j."=".$_POST['correct'.$j]."\");
-                                    }
-                                    else
-                                    {
-                                        echo \"<hr/>Wrong answer, try again<br/>\";
-                                        \$_COOKIE['Lives']--;
-                                        \$cookieLives = \"Lives\";
-                                        setcookie(\$cookieLives,\$_COOKIE['Lives'],time()+60*60*24,\"/\");
-
-                                        echo \"Chances left: \".\$_COOKIE['Lives'];
-                                        if(\$_COOKIE['Lives']==0)
+            if($pic!=NULL)
+            {
+            	$file = fopen($quizName."-Q".$j.".php","w") or die("Unable to open ".$quizName."-Q".$j.".php");
+                $content = "<?php
+                                    require_once('coreFunctions.php');
+                                    session_start();
+                                        \$progress = \"progress\";
+                                        \$progressValue = \"Question ".$j."\";
+                                        setcookie(\$progress,\$progressValue,time()+60*60*24,\"/\");
+                                        if(\$_COOKIE['Lives'] < 1)
                                         {
-                                          header(\"Location:".$quizName."-Fail.php\");
+                                            header(\"Location:".$quizName."-Fail.php\");
                                         }
-                                    }
-                                }
-                            	?>
-                                ";
+                                        makeHeader('".$quizName." | Question ".$j."');
+                                        makeNavBar();
+                                        ?>
+                                          <div class='container' style = 'text-align:left'>
+                                            <form method='post' enctype='multipart/form-data' action=\"<?php echo \$_SERVER['SELF']?>\">                     
+                                            <strong><p>Question ".$j."</p></strong>
+                                            <img src='".$pic."' style='width:500px;height:400px'><br/>
+                                              <p>".$_POST['Q'.$j]."</p>
+                                              <input type='radio' value='A' name='Q".$j."' >A. ".$_POST['Q'.$j.'A']."<br/>
+                                              <input type='radio' value='B' name='Q".$j."' >B. ".$_POST['Q'.$j.'B']."<br/>
+                                              <input type='radio' value='C' name='Q".$j."' >C. ".$_POST['Q'.$j.'C']."<br/>
+                                              <input type='radio' value='D' name='Q".$j."' >D. ".$_POST['Q'.$j.'D']."<br/><br/>
+                                              <input type='submit' value='Next Question' name='submit'>
+                                            </form>
+                                          </div>  
+                                        <?php
+                                        if(isset(\$_POST['submit']) && \$_POST['submit']!=NULL)
+                                        {	
+                                           if(\$_POST['Q".$j."']==".$_POST['correct'.$j].")
+                                            {
+                                                header(\"Location:".$quizName."-".$l.".php?Q".$j."=".$_POST['correct'.$j]."\");
+                                            }
+                                            else
+                                            {
+                                                echo '<div class=container>';
+                                                echo \"<hr/>Wrong answer, try again<br/>\";
+                                                if(\$_POST['Q".$j."']==\"A\")
+                                                {
+                                                    echo \"".$_POST['HintQ'.$j.'A']."</br>\";
+                                                }
+                                                if(\$_POST['Q".$j."']==\"B\")
+                                                {
+                                                    echo \"".$_POST['HintQ'.$j.'B']."</br>\";
+                                                }
+                                                if(\$_POST['Q".$j."']==\"C\")
+                                                {
+                                                    echo \"".$_POST['HintQ'.$j.'C']."</br>\";
+                                                }
+                                                if(\$_POST['Q".$j."']==\"D\")
+                                                {
+                                                    echo \"".$_POST['HintQ'.$j.'D']."</br>\";
+                                                }
+                                                \$_COOKIE['Lives']--;
+                                                \$cookieLives = \"Lives\";
+                                                setcookie(\$cookieLives,\$_COOKIE['Lives'],time()+60*60*24,\"/\");
 
-            fwrite($file,$content);
-            fclose($file);
+                                                echo \"Chances left: \".\$_COOKIE['Lives'];
+                                                echo '</div>';
+                                                if(\$_COOKIE['Lives'] < 1)
+                                                {
+                                                  header(\"Location:".$quizName."-Fail.php\");
+                                                }
+                                            }
+                                        }
+                                    ?>
+                                    ";
+
+                fwrite($file,$content);
+                fclose($file);
+            }
+            else
+            {
+            	$file = fopen($quizName."-Q".$j.".php","w") or die("Unable to open ".$quizName."-Q".$j.".php");
+                $content = "<?php
+                                    require_once('coreFunctions.php');
+                                    session_start();
+                                        \$progress = \"progress\";
+                                        \$progressValue = \"Question ".$j."\";
+                                        setcookie(\$progress,\$progressValue,time()+60*60*24,\"/\");
+                                        if(\$_COOKIE['Lives'] < 1)
+                                        {
+                                            header(\"Location:".$quizName."-Fail.php\");
+                                        }
+                                        makeHeader('".$quizName." | Question ".$j."');
+                                        makeNavBar();
+                                        ?>
+                                          <div class='container' style = 'text-align:left'>
+                                            <form method='post' enctype='multipart/form-data' action=\"<?php echo \$_SERVER['SELF']?>\">                     
+                                            <strong><p>Question ".$j."</p></strong><br/>
+                                              <p>".$_POST['Q'.$j]."</p>
+                                              <input type='radio' value='A' name='Q".$j."' >A. ".$_POST['Q'.$j.'A']."<br/>
+                                              <input type='radio' value='B' name='Q".$j."' >B. ".$_POST['Q'.$j.'B']."<br/>
+                                              <input type='radio' value='C' name='Q".$j."' >C. ".$_POST['Q'.$j.'C']."<br/>
+                                              <input type='radio' value='D' name='Q".$j."' >D. ".$_POST['Q'.$j.'D']."<br/><br/>
+                                              <input type='submit' value='Next Question' name='submit'>
+                                            </form>
+                                          </div>  
+                                        <?php
+                                        if(isset(\$_POST['submit']) && \$_POST['submit']!=NULL)
+                                        {	
+                                           if(\$_POST['Q".$j."']==".$_POST['correct'.$j].")
+                                            {
+                                                header(\"Location:".$quizName."-".$l.".php?Q".$j."=".$_POST['correct'.$j]."\");
+                                            }
+                                            else
+                                            {
+                                                echo '<div class=container>';
+                                                echo \"<hr/>Wrong answer, try again<br/>\";
+                                                if(\$_POST['Q".$j."']==\"A\")
+                                                {
+                                                    echo \"".$_POST['HintQ'.$j.'A']."</br>\";
+                                                }
+                                                if(\$_POST['Q".$j."']==\"B\")
+                                                {
+                                                    echo \"".$_POST['HintQ'.$j.'B']."</br>\";
+                                                }
+                                                if(\$_POST['Q".$j."']==\"C\")
+                                                {
+                                                    echo \"".$_POST['HintQ'.$j.'C']."</br>\";
+                                                }
+                                                if(\$_POST['Q".$j."']==\"D\")
+                                                {
+                                                    echo \"".$_POST['HintQ'.$j.'D']."</br>\";
+                                                }
+                                                \$_COOKIE['Lives']--;
+                                                \$cookieLives = \"Lives\";
+                                                setcookie(\$cookieLives,\$_COOKIE['Lives'],time()+60*60*24,\"/\");
+
+                                                echo \"Chances left: \".\$_COOKIE['Lives'];
+                                                echo '</div>';
+                                                if(\$_COOKIE['Lives'] < 1)
+                                                {
+                                                  header(\"Location:".$quizName."-Fail.php\");
+                                                }
+                                            }
+                                        }
+                                    ?>
+                                    ";
+
+                fwrite($file,$content);
+                fclose($file);
+            }
+            
         }
     }
    	
+     /*
+    	name: makeQuizA
+        parameters: String $quizName, Int $qAmount, Int $attempts
+        return void;
+    */
     function makeQuizA($quizName,$qAmount,$attempts)
     {
     	//Quiz Begin Page
@@ -400,11 +713,13 @@
         $content = "
         		   <?php
                    		require_once('coreFunctions.php');
-                   		makeHeader('".$quizName." | Getting Started');
+                   		session_start();
+                        makeHeader('".$quizName." | Getting Started');
                         makeNavBar();
                         	?>
                             	<div class='container' style = 'text-align:left'>  
                                     <h3>Welcome to ".$quizName."!</h3>
+                                    <h4>Created by: ".$_SESSION['user']."</h4>
                                     <h5/>You have ".$attempts." attempts to get through all ".$qAmount." questions before having to start over.<h5/>
                                     <hr/>
                                     <form method='post' enctype='multipart/form-data' action='".$quizName.".php'>
@@ -424,20 +739,20 @@
         $file = fopen($quizName.".php","w") or die("Unable to open ".$quizName.".php");
         $content = "<?php
                     require_once('coreFunctions.php');
-                    session_start();
-                    \$cookieLives = \"Lives\";
-                    \$Lives = ".$attempts.";
-                    setcookie(\$cookieLives,\$Lives,time()+60*60*24,\"/\");
-                    \$cookieName = \"name\";
-                    \$cookieEmail = \"email\";
-                    \$nameValue = \$_POST['name'];
-                    \$emailValue = \$_POST['email'];
-                    setcookie(\$cookieName,\$nameValue,time()+60*60*24,\"/\");
-                    setcookie(\$cookieEmail,\$emailValue,time()+60*60*24,\"/\");
-                    \$cookieQuiz = \"quiz\";
-                    \$quizValue = '".$quizName."';
-                    setcookie(\$cookieQuiz,\$quizValue,time()+60*60*24,\"/\");
-                    header(\"Location:".$quizName."-Q1.php\");
+                    	session_start();
+                        \$cookieLives = \"Lives\";
+                        \$Lives = ".$attempts.";
+                        setcookie(\$cookieLives,\$Lives,time()+60*60*24,\"/\");
+                        \$cookieName = \"name\";
+                        \$cookieEmail = \"email\";
+                        \$nameValue = \$_POST['name'];
+                        \$emailValue = \$_POST['email'];
+                        setcookie(\$cookieName,\$nameValue,time()+60*60*24,\"/\");
+                        setcookie(\$cookieEmail,\$emailValue,time()+60*60*24,\"/\");
+                        \$cookieQuiz = \"quiz\";
+                        \$quizValue = '".$quizName."';
+                        setcookie(\$cookieQuiz,\$quizValue,time()+60*60*24,\"/\");
+                        header(\"Location:".$quizName."-Q1.php\");
                 	?>";
         
         fwrite($file,$content);
@@ -450,25 +765,27 @@
         $file = fopen($quizName."-Fail.php","w") or die("Unable to open ".$quizName."-Done.php");
         $content = "<?php
         				require_once('coreFunctions.php');
-                        date_default_timezone_set('America/New_York');
-                        \$date = date('m/d/Y');
-                        \$time = date('h:i:sa');
-                        \$ip = \$_SERVER['REMOTE_ADDR'];
-                        \$cookieDate = 'date';
-                        \$cookieTime = 'time';
-                        setcookie(\$cookieDate,\$date,time()+60*60*24,'/');
-                        setcookie(\$cookieTime,\$time,time()+60*60*24,'/');
-                        makeHeader('".$quizName." | Sorry!');
-                        makeNavBar();
-                        ?>
-                        <div class= container style = text-align:left>
-                        <h3>Awww!</h3><br/>
-                        <hr/>
-                        <p>Too many missed questions. You are out of attempts, but don't quit <?php echo \$_COOKIE['name'];?>! Try again.<p><br/>
-                        <hr/><p>To return to the quiz list, click <?php makeLink('".$quizName."-Kill.php','here'); echo '</p><br/>';?>
-                        </div>	
-                        <?php
-                        makeFooter();
+                        	session_start();
+                            date_default_timezone_set('America/New_York');
+                            \$date = date('m/d/Y');
+                            \$time = date('h:i:sa');
+                            \$ip = \$_SERVER['REMOTE_ADDR'];
+                            \$cookieDate = 'date';
+                            \$cookieTime = 'time';
+                            setcookie(\$cookieDate,\$date,time()+60*60*24,'/');
+                            setcookie(\$cookieTime,\$time,time()+60*60*24,'/');
+                            makeHeader('".$quizName." | Sorry!');
+                            ?>
+                            <br/>
+                            <br/>
+                            <div class= container style = text-align:left>
+                            <h3>Awww!</h3><br/>
+                            <hr/>
+                            <p>Too many missed questions. You are out of attempts, but don't quit <?php echo \$_COOKIE['name'];?>! Try again.<p><br/>
+                            <hr/><p>To return to SimpleQ, click <?php makeLink('".$quizName."-Kill.php','here'); echo '</p><br/>';?>
+                            </div>	
+                            <?php
+                            makeFooter();
                         ?>";
         fwrite($file,$content);
         fclose($file);
@@ -477,29 +794,31 @@
         $file = fopen($quizName."-Done.php","w") or die("Unable to open ".$quizName."-Done.php");
         $content = "<?php
         				require_once('coreFunctions.php');
-                        \$question".$qAmount." = \"Answer".$qAmount."\";
-                        \$Q".$qAmount." = \$_GET['".$qAmount."'];
-                        setcookie(\$question".$qAmount.",\$Q".$qAmount.",time()+60*60*24,\"/\");
-                        \$progress = \"progress\";
-                        \$progressValue = \"Quiz Completed\";
-                        setcookie(\$progress,\$progressValue,time()+60*60*24,\"/\");
-                        date_default_timezone_set('America/New_York');
-                        \$date = date('m/d/Y');
-                        \$time = date('h:i:sa');
-                        \$ip = \$_SERVER['REMOTE_ADDR'];
-                        \$cookieDate = 'date';
-                        \$cookieTime = 'time';
-                        setcookie(\$cookieDate,\$date,time()+60*60*24,'/');
-                        setcookie(\$cookieTime,\$time,time()+60*60*24,'/');
-                        makeHeader('".$quizName." | Results');
-                        makeNavBar();
-                        ?>
-                        <div class= container style = text-align:left>
-                        <h4>Congratulations <?php echo \$_COOKIE[\"name\"];?>, you made it!</h4><hr/>
-                   		<p>To return to the quiz list, click <?php makeLink('".$quizName."-Kill.php','here'); echo '</p><br/>';?> 
-                        </div>	
-                        <?php
-                        makeFooter();
+                        	session_start();
+                            \$question".$qAmount." = \"Answer".$qAmount."\";
+                            \$Q".$qAmount." = \$_GET['".$qAmount."'];
+                            setcookie(\$question".$qAmount.",\$Q".$qAmount.",time()+60*60*24,\"/\");
+                            \$progress = \"progress\";
+                            \$progressValue = \"Quiz Completed\";
+                            setcookie(\$progress,\$progressValue,time()+60*60*24,\"/\");
+                            date_default_timezone_set('America/New_York');
+                            \$date = date('m/d/Y');
+                            \$time = date('h:i:sa');
+                            \$ip = \$_SERVER['REMOTE_ADDR'];
+                            \$cookieDate = 'date';
+                            \$cookieTime = 'time';
+                            setcookie(\$cookieDate,\$date,time()+60*60*24,'/');
+                            setcookie(\$cookieTime,\$time,time()+60*60*24,'/');
+                            makeHeader('".$quizName." | Results');
+                            ?>
+                            <br/>
+                            <br/>
+                            <div class= container style = text-align:left>
+                            <h4>Congratulations <?php echo \$_COOKIE[\"name\"];?>, you made it!</h4><hr/>
+                            <p>To return to SimpleQ, click <?php makeLink('".$quizName."-Kill.php','here'); echo '</p><br/>';?> 
+                            </div>	
+                            <?php
+                            makeFooter();
                         ?>";
         fwrite($file,$content);
         fclose($file);
@@ -508,7 +827,8 @@
         $file = fopen($quizName."-Kill.php","w") or die("Unable to open ".$quizName."-Kill.php");
         $content = "<?php
         			require_once('coreFunctions.php');
-        			\$conn = db_connect(); 
+        			session_start();
+                    \$conn = db_connect(); 
                     \$sql = \"INSERT INTO Results VALUES('\".\$_COOKIE['name'].\"','\".\$_COOKIE['email'].\"','\".\$_COOKIE['quiz'].\"',
     				'\".\$_COOKIE['date'].\"','\".\$_COOKIE['time'].\"','\".\$_COOKIE['progress'].\"')\";                  
     				my_sql_exec(\$conn, \$sql);
@@ -516,6 +836,7 @@
                     \$content = \"
                     <?php
                     require_once('coreFunctions.php');
+                    session_start();
                     makeHeader('Results for \".\$_COOKIE['quiz'].\"');
                     makeNavBar();
                     ?>
@@ -534,60 +855,25 @@
                     \";
                     fwrite(\$file1,\$content);  
                     fclose(\$file1);
-                    session_unset();
-                    session_destroy();
+                    
+                    setcookie(\"name\",\"dsdd\",time()-60*60*24,\"/\");
+                    setcookie(\"email\",\"dsdd\",time()-60*60*24,\"/\");
+                    setcookie(\"quiz\",\"dsdd\",time()-60*60*24,\"/\");
+                    setcookie(\"date\",\"dsdd\",time()-60*60*24,\"/\");
+                    setcookie(\"time\",\"dsdd\",time()-60*60*24,\"/\");
+                    setcookie(\"progress\",\"dsdd\",time()-60*60*24,\"/\");
+					setcookie(\"Lives\",\"dsdd\",time()-60*60*24,\"/\");
                     header('Location:SimpleQList.php');
-                    exit();
         			?>";
        fwrite($file,$content);  
        fclose($file);
     }
     
-    function checkAnswers($template, $qAmount)
-    {
-    	$puke = "<?php \$grade=0;";
-        if($template == 'B' || $template == 'C')
-        {
-        	for($i=0;$i<$qAmount;$i++)
-            {
-                $j=$i+1;
-                $puke = $puke."
-                \$miss".$j." = ''; 
-                if(\$_POST['Q".$j."'] == ".$_POST['correct'.$j].") 
-                \$grade += 1;
-                else \$miss".$j." = '*Question ".$j."';";
-                              
-            }  
-             $answers = showAnswers($qAmount);
-             $puke = $puke.$answers."
-             \$progress = 'progress';
-             \$progressValue = \$grade.'/".$qAmount." Correct';
-             setcookie(\$progress,\$progressValue,time()+60*60*24,'/');
-             ?>";
-        }
-        
-        if($template == 'A')
-        {
-        	echo "To be created<br/>";
-        }
-        
-        return $puke;
-    }
-    
-    function showAnswers($qAmount)
-    {
-    	$wrong = "";
-        for($i=0;$i<$qAmount;$i++)
-        {
-          $j=$i+1;
-          $wrong = $wrong."'.\$miss".$j.".'<br/>";
-
-        } 
-        $content = "echo 'Quiz Complete!<hr/>Correct Answers: '.\$grade.'/".$qAmount."<hr/> Questions Missed:<br/>
-        			".$wrong."';";
-       return $content;             
-    }
-    
+    /*
+    	name: uploadfile
+        parameters: String $myfile
+        return String;
+    */
     function uploadfile($myfile)
     {
         $dir = "Images/";
@@ -616,13 +902,19 @@
             }
             else echo "Wrong file types<br/>";
           }
-          else echo "Not an image file<br/>";
+          else 
+          	return NULL;//echo "Not an image file<br/>";
         }
         else echo "file is too big<br/>";
 
         return NULL;
     }
       
+    /*
+    	name: db_connect
+        parameters: null
+        return database connection;
+    */
     function db_connect()
     {
     	$serverName = "localhost";
@@ -637,6 +929,11 @@
         return $conn;                  
     }
     
+    /*
+    	name: my_sql_exec
+        parameters: Database connection, String $sql
+        return Array String;
+    */
     function my_sql_exec($conn, $sql)
     {
       $result = mysqli_query($conn, $sql);
@@ -647,9 +944,14 @@
       return $result;
     }
     
+    /*
+    	name: displayAllQuizzes
+        parameters: null
+        return void;
+    */
     function displayAllQuizzes()
     {
-    	$conn = db_connect();
+        $conn = db_connect();
         $sql = "SELECT * FROM Quiz;";
         $result = my_sql_exec($conn,$sql);
         $numQuizzes = mysqli_num_rows($result);
@@ -660,8 +962,61 @@
         }
     }
     
+    /*
+    	name: displayQuizSearch
+        parameters: String $searchBy
+        return void;
+    */
+    function displayQuizSearch($searchBy)
+    {
+        $conn = db_connect();
+        $facID = getFacID($searchBy);
+        $sql = "SELECT * FROM Quiz WHERE facID='".$facID."';";
+        $result = my_sql_exec($conn,$sql);
+        $numQuizzes = mysqli_num_rows($result);
+        if($numQuizzes == "0") echo "<p>There are no quizzes available.</p><br/>";
+        while($row = mysqli_fetch_row($result))
+        {
+          makeLink($row[0]."-Begin.php",$row[0]); echo "<br/>";
+        }
+        echo "</div>";
+    }
+    
+    /*
+    	name: displayQuizzes
+        parameters: Integer $facID
+        return void;
+    */
+    function displayQuizzes($facID)
+    {
+    	$conn = db_connect();
+        $sql = "SELECT * FROM Quiz WHERE facID=".$_SESSION['facID'].";";
+        $result = my_sql_exec($conn,$sql);
+        $numQuizzes = mysqli_num_rows($result);
+        if($numQuizzes == "0") echo "<p>There are no quizzes available.</p><br/>";
+        echo "<div class=container style='text-align:center'>";
+        echo "
+              <h3>Select a Quiz to Edit</h3>
+              <hr>";
+        while($row = mysqli_fetch_row($result))
+        {
+            //makeLink("EditQuiz.php?quizName=".$row[0],$row[0]); echo "<br/>";
+            echo "<a href='EditQuiz.php?quizName=".$row[0]."' class='btn btn-info' role='button'>Edit ".$row[0]."</a><br/><br/>";
+        }
+        echo "</div>";
+    }
+    
+    /*
+    	name: displayLogin
+        parameters: null
+        return void;
+    */
     function displayLogin()
     {
+    	if(isset($_SESSION['user']))
+        {
+        	header("Location:SimpleQMakeQuiz.php");
+        }
     ?>
     	<div class="container">
                 <form action="<?php echo $_SERVER['SELF']?>" method="post">
@@ -705,6 +1060,11 @@
             }
     }
     
+    /*
+    	name: displayProfile
+        parameters: String $username
+        return void;
+    */
     function displayProfile($username)
     {
     	$conn = db_connect();
@@ -715,18 +1075,16 @@
         while($row = mysqli_fetch_row($result))
         {
             	echo "<h1>Welcome ".$row[4]."!</h1>";
+                echo "<h6>Here, the user can elect to either edit an existing quiz or create a new one.</h6>";
+                if($row[6])
+            	echo "<img src='".$row[6]."' style='width:250px;height:200px'><br/><br/>";
         }
-        echo "<h6>Here, the user can elect to either edit an existing quiz or create a new one.</h6>";
+        
         //echo "<p>The user only has access to the quizzes they have created</p>";
-        while($row = mysqli_fetch_row($result))
-        {
-            if($row[6])
-            	echo "<img src='".$row[6]."' style='width:500px;height:400px'><br/><br/>";
-        }
-        echo "<a href='SimpleQuizEdit.php' class='btn btn-info' role='button'>Edit Quiz</a>&nbsp&nbsp
-              <a href='Step1.php' class='btn btn-info' role='button'>New Quiz</a><br/>
+        //echo "<a href='SimpleQuizEdit.php' class='btn btn-info' role='button'>Edit Quiz</a>&nbsp&nbsp";
+        echo "<a href='Step1.php' class='btn btn-info' role='button'>Create New Quiz</a><br/>
               <hr/>
-              <p>Your Quiz Results</p>
+              <h3>Your Quiz Results</h3>
               <hr>";
       	
         $sql = "SELECT * FROM Quiz WHERE facID=".$_SESSION['facID'].";";
@@ -740,6 +1098,130 @@
       echo "</div>";
     }
     
+    /*
+    	name: displaySettings
+        parameters: Integer $facID
+        return void;
+    */
+    function displaySettings($facID)
+    {
+    	$conn = db_connect();
+        $sql = "SELECT * FROM Faculty WHERE facID=".$facID.";";
+        $result = my_sql_exec($conn,$sql);
+ 
+        echo "<div style='text-align:center'>";      
+        while($row = mysqli_fetch_row($result))
+        {
+            echo "<h1>Account Settings</h1><hr/>";
+            if($row[6])
+            	echo "<img src='".$row[6]."' style='width:250px;height:200px'><br/><hr/>";
+            echo "<div style='text-align:left;margin-left:42%'><p><b>Username:</b> ".$row[1]."</p><br/>";   
+            echo "<p><b>Email:</b> ".$row[3]."</p><br/>"; 
+            echo "<p><b>Faculty ID:</b> ".$row[0]."</p></div><hr/>"; 
+            //echo "<div class = container style=\"left-margin:100%\"><table border=1><tr><td>Username: </td><td>".$row[1]."</td><tr/>";   
+            //echo "<tr><td>Email: </td><td>".$row[3]."</td><tr/>"; 
+            //echo "<tr><td>Faculty ID: </td><td>".$row[0]."</td><tr/></table></div><hr/>"; 
+            echo "<a href='ChangeInfo.php?option=pic' class='btn btn-info' role='button'>Change Your Profile Picture</a><br/><br/>";
+            echo "<a href='ChangeInfo.php?option=password' class='btn btn-info' role='button'>Change Your Password</a><br/><br/>";
+            echo "<a href='ChangeInfo.php?option=email' class='btn btn-info' role='button'>Change Your Email</a><br/><br/>";
+        }
+    }
+    
+    /*
+    	name: changeInformation
+        parameters: String $info
+        return void;
+    */
+    function changeInformation($info)
+    {
+    	?>
+        	<div class=container>
+            <form method=post enctype="multipart/form-data" action="<?php echo $_SERVER['SELF'];?>">
+            <?php
+            	if($info=="pic")
+                {
+                	echo "Upload new profile picture: <input type='file' name='myfile'><br/>";
+                }
+                if($info=="password")
+                {
+                	echo "Enter old password: <input type=password name=oldpassword><br/>";
+                    echo "Enter new password: <input type=password name=newpassword><br/>";
+                    echo "Confirm new password: <input type=password name=newpassword2><br/>";
+                }
+                if($info=="email")
+                {
+                	echo "Enter new email: <input type=text name=email><br/>";
+                }
+            ?>
+            <hr/>
+            <input type="submit" value="Submit" name="submit">
+            </form>
+            </div>
+        <?php
+        if(isset($_POST['submit'])&& $_POST['submit']!=NULL)
+        {
+            echo "<div class=container><hr/>";
+            $conn = db_connect();
+            $sql = "SELECT * FROM Faculty WHERE facID=".$_SESSION['facID'].";";
+            $result = my_sql_exec($conn,$sql);
+
+            echo "<div style='text-align:center'>";      
+            while($row = mysqli_fetch_row($result))
+            {
+                if($info=="pic")
+                {
+					$file = uploadfile("myfile");
+                    $sql = "UPDATE Faculty SET picture='".$file."' WHERE facID='".$_SESSION['facID']."';";
+                    if(my_sql_exec($conn, $sql))
+                    {
+                      echo "<h3>Your profile picture has been successfully reset.</h3><br/>";
+                    }
+                    else
+                      echo "<h3>Failed to reset profile picture.</h3><br/>";
+                }
+                if($info=="password")
+                {
+                    if($row[2]==sha1($_POST['oldpassword']))
+                    {
+                        if($_POST['newpassword']!=$_POST['newpassword2'])
+                        {
+                            echo "<p>Passwords do not match.</p><br/>";
+                        }
+                        else
+                        {
+                            $sql = "UPDATE Faculty SET passWord='".sha1($_POST['newpassword'])."' WHERE facID='".$_SESSION['facID']."';";
+                            if(my_sql_exec($conn, $sql))
+                            {
+                              echo "<h3>Password has been successfully reset.</h3><br/>";
+                            }
+                            else
+                              echo "<h3>Failed to reset password.</h3><br/>";
+                        }       
+                    }
+                    else
+                        echo "<p>Current password is incorrect.</p><br/>";
+                }
+                if($info=="email")
+                {
+                    $sql = "UPDATE Faculty SET email='".$_POST['email']."' WHERE facID='".$_SESSION['facID']."';";
+                    if(my_sql_exec($conn, $sql))
+                    {
+                      echo "<h3>Your email has been successfully reset.</h3><br/>";
+                    }
+                    else
+                      echo "<h3>Failed to reset your email.</h3><br/>";
+                }
+            }
+        	
+            echo "</div>";
+        }   
+    }
+    
+    /*
+    	name: displayRegistration
+        parameters: null
+        return void;
+    */
     function displayRegistration()
     {
     	?>
@@ -808,6 +1290,11 @@
         }
     }
     
+    /*
+    	name: displayPassReset
+        parameters: null
+        return void;
+    */
     function displayPassReset()
     {
     	?>
@@ -854,6 +1341,11 @@
         }
     }
     
+    /*
+    	name: displayResetForm
+        parameters: null
+        return void;
+    */
     function displayResetForm()
     {
     	$id = $_GET['id'];
@@ -890,6 +1382,11 @@
     	}
     }
     
+    /*
+    	name: newPassword
+        parameters: null
+        return void;
+    */
     function newPassword()
     {
     	if($_POST['newpassword']!=$_POST['newpassword2'])
@@ -917,6 +1414,11 @@
             "<h3>ID was not found, try again.</h3>";
     }
     
+    /*
+    	name: displayQuizSearch
+        parameters: String $username, String $password
+        return Boolean;
+    */
     function validateUser($username,$password)
     {
     	$conn = db_connect();
@@ -930,6 +1432,11 @@
         	return 0; //false
     }
     
+    /*
+    	name: displayQuizResults
+        parameters: String $quizName
+        return void;
+    */
     function displayQuizResults($quizName)
     {
     	$conn = db_connect();
@@ -946,6 +1453,11 @@
         }
     }
     
+    /*
+    	name: displayQuizSearch
+        parameters: String $result
+        return Array;
+    */
     function db_result_to_array($result)
     {
         $res_array = array();
@@ -956,6 +1468,11 @@
         return $res_array;
     }
     
+    /*
+    	name: displayQuizSearch
+        parameters: String $username
+        return String;
+    */
     function getFacID($username)
     {
     	$conn = db_connect();
