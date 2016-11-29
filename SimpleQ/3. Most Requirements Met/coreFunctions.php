@@ -36,8 +36,9 @@
                 <a class="navbar-brand" href="Home.php">Simple Q</a>
               </div>
               <ul class="nav navbar-nav">
-                <li><a href="SimpleQList.php">Quiz List</a></li>
-                <li><a href="SimpleQAbout.php">About</a></li>
+                  <li><a href="Tutorial.php">Tutorial</a></li>
+                  <li><a href="SimpleQList.php">Quiz List</a></li>
+                  <li><a href="SimpleQAbout.php">About</a></li>
               </ul>
               <?php
                   if($_SESSION['user'])
@@ -970,4 +971,4 @@
     }
     
     
-?>
+?>
