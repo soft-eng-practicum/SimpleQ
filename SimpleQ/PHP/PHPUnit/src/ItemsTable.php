@@ -4,20 +4,24 @@ namespace TDD;
 //PDO is a database abstraction layer in PHP.
 use \PDO;
 
-class ItemsTable {
+class ItemsTable
+{
 	protected $table = 'items';
 
 	protected $PDO;
 
-	public function __construct(PDO $pdo) {
+	public function __construct(PDO $pdo) 
+	{
 		$this->PDO = $pdo;
 	}
 
-	public function __destruct() {
+	public function __destruct() 
+	{
 		unset($this->PDO);
 	}
 
-	public function findForId($id) {
+	public function findForId($id) 
+	{
 		$query = "SELECT * FROM {$this->table} WHERE {$this->table}.id = ?";
 		$statement = $this->PDO->prepare($query);
 		$statement->execute([$id]);
