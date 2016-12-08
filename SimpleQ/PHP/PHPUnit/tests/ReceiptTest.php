@@ -5,7 +5,7 @@ require dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_
 use PHPUnit\Framework\TestCase;
 use TDD\Receipt;
 
-//This test is meant to fail.
+// Test to ensure that the values in the array equal the expected number
 class ReceiptTest extends TestCase {
 	public function testTotal() {
 		$Receipt = new Receipt();
