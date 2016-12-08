@@ -27,7 +27,7 @@ to take and attempt it. All results are emailed to the teacher that created that
 1. __Download files from github__ : [SimpleQ Repo](https://github.com/soft-eng-practicum/myXLab)<br/>
 	1a. Clone the repo via a GUI or Git Bash<br/>
 	1b. git clone https://github.com/soft-eng-practicum/myXLab.git<br/>
-2. __Download XAMPP_ : [XAMPP](https://www.apachefriends.org/index.html)<br/>
+2. __Download XAMPP__ : [XAMPP](https://www.apachefriends.org/index.html)<br/>
 	2a. Install and Run the program<br/>
 	2b. Start the Apache server<br/>
 	2c. Start MySQL<br/>
