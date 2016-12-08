@@ -21,3 +21,15 @@ SimpleQ is a web app used for teachers to generate study tools for the use of th
 create a quiz, to choose between three differnt templates of quizzing. Users are also to add pictures to their quizzes as well, 
 add the question they want, and also the answers they want. Students just have to browse to the site find the quiz they want 
 to take and attempt it. All results are emailed to the teacher that created that quiz.
+
+# Developer Install
+------
+1. __Download files from github__ : [SimpleQ Repo](https://github.com/soft-eng-practicum/myXLab)
+	1a. Clone the repo via a GUI or Git Bash
+	1b. git clone https://github.com/soft-eng-practicum/myXLab.git
+2. __Download XAMPP_ : [XAMPP](https://www.apachefriends.org/index.html)
+	2a. Install and Run the program
+	2b. Start the Apache server
+	2c. Start MySQL
+4. __Run Home.php__ : The localhost server should allow the user to display whatever changes they have made within their default browser.
+
