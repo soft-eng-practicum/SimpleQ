@@ -24,7 +24,8 @@ class ItemsTableTest extends TestCase {
 		unset($this->ItemsTable);
 		unset($this->PDO);
 	}
-
+	
+	// Method to test that the id is correct for the following values.
 	public function testFindForId() {
 		$id = 1;
 
@@ -41,9 +42,25 @@ class ItemsTableTest extends TestCase {
 		);
 		$this->assertEquals(
 			'Candy',
-			$result['name'],
-			'The id key/value of the result for name should be equal to `Candy`.'
+			$result['firstName'],
+			'The id key/value of the result for firstName should be equal to `Candy`.'
 		);
+		$this->assertEquals(
+			'Crush',
+			$result['lastName'],
+			'The id key/value of the result for lastName should be equal to `Crush`.'
+		);
+		$this->assertEquals(
+			'Stripper',
+			$result['occupation'],
+			'The id key/value of the result for occupation should be equal to `Stripper`.'
+		);
+		$this->assertEquals(
+			'1924 Sucka Drive',
+			$result['address'],
+			'The id key/value of the result for address should be equal to `1924 Sucka Drive`.'
+		);
+		
 	}
 
 	public function testFindForIdMock() {
@@ -82,18 +99,21 @@ class ItemsTableTest extends TestCase {
 			'The output for the mocked instance of the PDO and PDOStatment should produce the string `canary`.'
 		);
 	}
+	
 
 	protected function getConnection() {
 		return new PDO('sqlite::memory:');
 	}
 
-	// Creating a table that holds values for id, name and price
+	// Creating a table that holds values for id, firstName, lastName, address, and occupation
 	protected function createTable() {
 		$query = "
 		CREATE TABLE `items` (
 			`id`	INTEGER,
-			`name`	TEXT,
-			`price`	REAL,
+			`firstName`	TEXT,
+			`lastName`	TEXT,
+			`address`	TEXT,
+			'occupation' TEXT,
 			PRIMARY KEY(`id`)
 		);
 		";
@@ -103,8 +123,8 @@ class ItemsTableTest extends TestCase {
 	// Filling the table with following values
 	protected function populateTable() {
 		$query = "
-		INSERT INTO `items` VALUES (1,'Candy',1.00);
-		INSERT INTO `items` VALUES (2,'TShirt',5.34);
+		INSERT INTO `items` VALUES (1, 'Candy', 'Crush', '1924 Sucka Drive', 'Stripper');
+		INSERT INTO `items` VALUES (2, 'John', 'Smith', '9999 The Way', 'Unemployeed');
 		";
 		$this->PDO->query($query);
 	}
