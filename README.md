@@ -24,12 +24,12 @@ to take and attempt it. All results are emailed to the teacher that created that
 
 # Developer Install
 ------
-1. __Download files from github__ : [SimpleQ Repo](https://github.com/soft-eng-practicum/myXLab)
-	1a. Clone the repo via a GUI or Git Bash
-	1b. git clone https://github.com/soft-eng-practicum/myXLab.git
-2. __Download XAMPP_ : [XAMPP](https://www.apachefriends.org/index.html)
-	2a. Install and Run the program
-	2b. Start the Apache server
-	2c. Start MySQL
+1. __Download files from github__ : [SimpleQ Repo](https://github.com/soft-eng-practicum/myXLab)<br/>
+	1a. Clone the repo via a GUI or Git Bash<br/>
+	1b. git clone https://github.com/soft-eng-practicum/myXLab.git<br/>
+2. __Download XAMPP_ : [XAMPP](https://www.apachefriends.org/index.html)<br/>
+	2a. Install and Run the program<br/>
+	2b. Start the Apache server<br/>
+	2c. Start MySQL<br/>
 4. __Run Home.php__ : The localhost server should allow the user to display whatever changes they have made within their default browser.
 
